@@ -5,47 +5,32 @@
     <title>Rabar FX Dashboard</title>
     <style>
         body { margin: 0; background-color: #0b0e14; color: white; font-family: sans-serif; }
-        .nav { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 10px; }
-        button { padding: 10px; background: #2a2e39; border: none; color: white; border-radius: 5px; cursor: pointer; }
+        .nav { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 5px; padding: 10px; }
+        button { padding: 10px; background: #2a2e39; border: none; color: white; border-radius: 5px; cursor: pointer; font-size: 12px; }
         button.active { background: #2962ff; }
-        .room { display: none; padding: 15px; }
+        .room { display: none; padding: 10px; }
         .room.active { display: block; }
-        .chart { height: 350px; width: 100%; }
-        .box { padding: 20px; background: #1a1e29; border-radius: 10px; margin-top: 10px; border-left: 5px solid #2962ff; }
+        .chart { height: 300px; width: 100%; }
+        .box { padding: 15px; background: #1a1e29; margin-top: 10px; border-radius: 5px; border-left: 4px solid #2962ff; }
     </style>
 </head>
 <body>
-
     <div class="nav">
-        <button class="active" onclick="showRoom(event, 'ict')">ICT/SMT Chart</button>
-        <button onclick="showRoom(event, 'tesla')">Tesla Zones</button>
+        <button class="active" onclick="showRoom(event, 'ict')">ICT</button>
+        <button onclick="showRoom(event, 'tesla')">Tesla</button>
         <button onclick="showRoom(event, 'signals')">Signals</button>
-        <button onclick="showRoom(event, 'analysis')">Daily Analysis</button>
+        <button onclick="showRoom(event, 'analysis')">Analysis</button>
     </div>
 
-    <div id="ict" class="room active">
-        <div id="tv_ict" class="chart"></div>
-        <div class="box"><h3>ICT/SMT Analysis</h3><p>لێرەدا BOS و CHOCH دیاری بکە...</p></div>
-    </div>
-
-    <div id="tesla" class="room">
-        <div id="tv_tesla" class="chart"></div>
-        <div class="box"><h3>Tesla 3-6-9 Zones</h3><p>نرخەکان لە 3-6-9 دابەش بکە...</p></div>
-    </div>
-
-    <div id="signals" class="room">
-        <div class="box"><h3>Signals Room</h3><p>سیگناڵەکان لێرە زیاد بکە...</p></div>
-    </div>
-
-    <div id="analysis" class="room">
-        <div class="box"><h3>Daily Analysis</h3><p>شیکاری ڕۆژانە بۆ گۆڵد و ناسداک...</p></div>
-    </div>
+    <div id="ict" class="room active"><div id="tv_ict" class="chart"></div><div class="box"><h3>ICT/SMT</h3><p>شیکاری شەمەندەفەری بازاڕ</p></div></div>
+    <div id="tesla" class="room"><div id="tv_tesla" class="chart"></div><div class="box"><h3>Tesla Zones</h3><p>دیاریکردنی زۆنەکانی 3-6-9</p></div></div>
+    <div id="signals" class="room"><div class="box"><h3>Signals</h3><p>سیگناڵە گرنگەکان لێرە زیاد بکە</p></div></div>
+    <div id="analysis" class="room"><div class="box"><h3>Daily Analysis</h3><p>شیکاری ڕۆژانەی گۆڵد و ناسداک</p></div></div>
 
     <script src="https://s3.tradingview.com/tv.js"></script>
     <script>
         new TradingView.widget({"container_id":"tv_ict","symbol":"OANDA:XAUUSD","theme":"dark"});
         new TradingView.widget({"container_id":"tv_tesla","symbol":"OANDA:XAUUSD","theme":"dark"});
-
         function showRoom(evt, id) {
             document.querySelectorAll('.room').forEach(r => r.classList.remove('active'));
             document.querySelectorAll('button').forEach(b => b.classList.remove('active'));
