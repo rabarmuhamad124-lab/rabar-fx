@@ -1,31 +1,145 @@
-export default function Home() {
-  return (
-    <main
-      style={{
-        background: "#000",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <h1
-        style={{
-          color: "gold",
-          textAlign: "center",
-          padding: "15px",
-          fontSize: "32px",
-        }}
-      >
-        RABAR FX - LIVE GOLD
-      </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RABAR FX BOOK</title>
 
-      <iframe
-        src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_1&symbol=OANDA:XAUUSD&interval=15&theme=dark&style=1&locale=en"
-        width="100%"
-        height="800"
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
-    </main>
-  );
+<style>
+body{
+margin:0;
+background:#050505;
+color:#fff;
+font-family:Arial,sans-serif;
 }
+
+header{
+background:#111;
+padding:20px;
+text-align:center;
+border-bottom:2px solid gold;
+}
+
+h1{
+color:gold;
+font-size:40px;
+}
+
+nav{
+display:flex;
+justify-content:center;
+gap:20px;
+padding:15px;
+background:#1a1a1a;
+flex-wrap:wrap;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+section{
+padding:40px;
+margin:20px;
+background:#111;
+border-radius:15px;
+border:1px solid gold;
+}
+
+h2{
+color:gold;
+}
+
+.card{
+background:#1b1b1b;
+padding:20px;
+margin-top:20px;
+border-left:4px solid gold;
+border-radius:10px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>RABAR FX BOOK</h1>
+<p>ICT • SMT • Tesla 3-6-9</p>
+</header>
+
+<nav>
+<a href="#ict">ICT</a>
+<a href="#tesla">Tesla</a>
+<a href="#signals">Signals</a>
+<a href="#analysis">Analysis</a>
+<a href="#boss">Boss Room</a>
+</nav>
+
+<section id="ict">
+<h2>ICT Master</h2>
+
+<div class="card">
+<h3>BOS</h3>
+<p>Break Of Structure</p>
+</div>
+
+<div class="card">
+<h3>CHOCH</h3>
+<p>Change Of Character</p>
+</div>
+
+<div class="card">
+<h3>SMT</h3>
+<p>Smart Money Technique</p>
+</div>
+
+</section>
+
+<section id="tesla">
+
+<h2>Tesla 3-6-9</h2>
+
+<div class="card">
+<h3>369 Zones</h3>
+<p>Tesla Energy Levels</p>
+</div>
+
+</section>
+
+<section id="signals">
+
+<h2>ICT + SMT Signals</h2>
+
+<div class="card">
+<p>BUY</p>
+<p>SELL</p>
+<p>WAIT</p>
+</div>
+
+</section>
+
+<section id="analysis">
+
+<h2>Daily Analysis</h2>
+
+<div class="card">
+<p>Gold Analysis</p>
+</div>
+
+</section>
+
+<section id="boss">
+
+<h2>Boss Room</h2>
+
+<div class="card">
+<p>Boss Zone</p>
+<p>Smart Money Zone</p>
+</div>
+
+</section>
+
+</body>
+</html>
