@@ -172,6 +172,41 @@ new TradingView.widget({
 
 </div>
 
-</section>
+</section><script>
+function updateSignals() {
+
+const ict = document.getElementById("ictSignal");
+if (ict) {
+ict.innerHTML = `
+<h3>ICT Signal</h3>
+<p style="color:lime;">🟢 BUY</p>
+`;
+}
+
+const tesla = document.getElementById("teslaSignal");
+if (tesla) {
+tesla.innerHTML = `
+<h3>Tesla 3-6-9</h3>
+<p style="color:gold;">⚡ Bullish Energy</p>
+`;
+}
+
+const analysis = document.getElementById("analysis");
+if (analysis) {
+analysis.innerHTML = `
+<h3>Daily Analysis</h3>
+<p>Trend : Bullish</p>
+<p>BOS : Confirmed ✅</p>
+<p>CHOCH : No</p>
+<p>SMT : Bullish</p>
+<p>Target : 3400</p>
+`;
+}
+
+}
+
+updateSignals();
+setInterval(updateSignals,30000);
+</script>
 </body>
 </html>
