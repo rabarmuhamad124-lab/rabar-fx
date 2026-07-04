@@ -2,57 +2,6 @@
 <html lang="ku">
 <head>
     <meta charset="UTF-8">
-    <title>Rabar FX Library</title>
-    <style>
-        body { margin: 0; background-color: #0b0e14; color: #d1d4dc; font-family: sans-serif; }
-        .nav { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 10px; }
-        button { padding: 12px; background: #2a2e39; border: none; color: white; border-radius: 5px; cursor: pointer; }
-        button.active { background: #2962ff; }
-        .room { display: none; padding: 15px; }
-        .room.active { display: block; }
-        .box { background: #181c25; padding: 15px; border-radius: 8px; border-left: 4px solid #2962ff; margin-bottom: 10px; }
-    </style>
-</head>
-<body>
-
-    <div class="nav">
-        <button onclick="showRoom('ict-chart')">ICT/SMT Chart</button>
-        <button onclick="showRoom('tesla-chart')">Tesla Zones</button>
-        <button onclick="showRoom('signals')">Signals</button>
-        <button onclick="showRoom('analysis')">Daily Analysis</button>
-    </div>
-
-    <div id="ict-chart" class="room active">
-        <div class="box"><h3>ICT/SMT Chart Room</h3><p>لێرە چارتەکە بۆ دیاریکردنی BOS, CHOCH, SMT دابنێ...</p></div>
-    </div>
-
-    <div id="tesla-chart" class="room">
-        <div class="box"><h3>Tesla 3-6-9 Chart</h3><p>لێرە زۆنەکانی 3-6-9ـی تێسلا دیاری بکە...</p></div>
-    </div>
-
-    <div id="signals" class="room">
-        <div class="box"><h3>Signals Room</h3><p>سیگناڵەکانی ICT و تێسلا لێرە ڕیز بکە...</p></div>
-    </div>
-
-    <div id="analysis" class="room">
-        <div class="box"><h3>Daily Analysis</h3><p>شیکاری ڕۆژانە لەسەر بنەمای هەموو زانستەکان...</p></div>
-    </div>
-
-    <script>
-        function showRoom(id) {
-            document.querySelectorAll('.room').forEach(r => r.classList.remove('active'));
-            document.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-    </script>    
-    new TradingView.widget({"container_id":"tv_ict","symbol":"OANDA:XAUUSD","theme":"dark","interval":"15"});
-    new TradingView.widget({"container_id":"tv_tesla","symbol":"OANDA:XAUUSD","theme":"dark","interval":"60"});
-
-</body><!DOCTYPE html>
-<html lang="ku">
-<head>
-    <meta charset="UTF-8">
     <title>Rabar FX Dashboard</title>
     <style>
         body { margin: 0; background-color: #0b0e14; color: white; font-family: sans-serif; }
@@ -61,7 +10,7 @@
         button.active { background: #2962ff; }
         .room { display: none; padding: 15px; }
         .room.active { display: block; }
-        .chart { height: 350px; width: 100%; }
+        .chart { height: 350px; width: 100%; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -78,18 +27,19 @@
     <div id="chart3" class="room"><div id="tv_chart3" class="chart"></div></div>
     <div id="chart4" class="room"><div id="tv_chart4" class="chart"></div></div>
 
-    <script src="https://s
+    <script src="https://s3.tradingview.com/tv.js"></script>
+    <script>
+        new TradingView.widget({"container_id":"tv_ict","symbol":"OANDA:XAUUSD","theme":"dark"});
+        new TradingView.widget({"container_id":"tv_tesla","symbol":"OANDA:XAUUSD","theme":"dark"});
+        new TradingView.widget({"container_id":"tv_chart3","symbol":"OANDA:EURUSD","theme":"dark"});
+        new TradingView.widget({"container_id":"tv_chart4","symbol":"OANDA:GBPUSD","theme":"dark"});
 
-</html>    <div id="extra-chart-1" class="room">
-        <div class="box">
-            <h3>Extra Chart 1</h3>
-            <div id="tv_extra1" style="height: 350px;"></div>
-        </div>
-    </div>
-    <div id="extra-chart-2" class="room">
-        <div class="box">
-            <h3>Extra Chart 2</h3>
-            <div id="tv_extra2" style="height: 350px;"></div>
-        </div>
-    </div>
-
+        function showRoom(evt, id) {
+            document.querySelectorAll('.room').forEach(r => r.classList.remove('active'));
+            document.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
