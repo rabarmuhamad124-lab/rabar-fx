@@ -46,7 +46,45 @@
         <p style="color: #ff4d4d; font-weight: bold;">ستۆپ لۆس: 4219.5</p>
     </div>
 
+</div><!-- بەشی سەرەکی -->
+<div style="margin-top: 20px;">
+    <!-- ناونیشانی بەشەکان -->
+    <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+        <button onclick="showSection('ict')" style="flex: 1; padding: 10px;">ICT / SMC</button>
+        <button onclick="showSection('tesla')" style="flex: 1; padding: 10px;">Tesla 3-6-9</button>
+        <button onclick="showSection('analysis')" style="flex: 1; padding: 10px;">شیکاری</button>
+    </div>
+
+    <!-- ناوەڕۆکی بەشەکان -->
+    <div id="ict" class="section">
+        <div style="background-color: #0d3b33; color: white; padding: 15px; border-radius: 10px;">
+            <h3>سیگناڵی ICT</h3>
+            <p>لێرە ڕیزبەندی ئۆردەر بلۆکەکان و CHOCH دابنێ...</p>
+        </div>
+    </div>
+    
+    <div id="tesla" class="section" style="display:none;">
+        <div style="background-color: #2b2b2b; color: white; padding: 15px; border-radius: 10px;">
+            <h3>سیگناڵی تێسلا 3-6-9</h3>
+            <p>لێرە ڕێژەکانی 3، 6، 9 بۆ XAUUSD دابنێ...</p>
+        </div>
+    </div>
+    
+    <div id="analysis" class="section" style="display:none;">
+        <div style="background-color: #3b2b0d; color: white; padding: 15px; border-radius: 10px;">
+            <h3>شیکاری ڕۆژانە</h3>
+            <p>شیکاری تەکنیکی بە درێژی...</p>
+        </div>
+    </div>
 </div>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+}
+</script>
+
 
 </body>
 </html>
