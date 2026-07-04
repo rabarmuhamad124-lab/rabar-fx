@@ -2,13 +2,15 @@
 <html lang="ku">
 <head>
     <meta charset="UTF-8">
-    <title>Rabar FX | Advanced Analysis</title>
+    <title>Rabar FX | Dashboard</title>
     <style>
         body { margin: 0; background-color: #131722; color: white; font-family: sans-serif; }
         .tab-container { display: flex; gap: 5px; padding: 10px; }
-        .tab-btn { flex: 1; padding: 12px; cursor: pointer; background: #2a2e39; border: none; color: white; border-radius: 5px; }
+        .tab-btn { flex: 1; padding: 12px; cursor: pointer; background: #2a2e39; border: none; color: white; border-radius: 5px; font-weight: bold; }
         .tab-btn:hover { background: #444; }
+        .tab-btn.active { background: #00ff9d; color: black; }
         .content { padding: 15px; display: none; }
+        .content.active { display: block; }
     </style>
 </head>
 <body>
@@ -16,22 +18,22 @@
     <div id="tradingview_chart" style="height: 400px;"></div>
 
     <div class="tab-container">
-        <button class="tab-btn" onclick="show('ict')">ICT / SMC</button>
-        <button class="tab-btn" onclick="show('tesla')">Tesla 3-6-9</button>
-        <button class="tab-btn" onclick="show('analysis')">شیکاری</button>
+        <button class="tab-btn active" onclick="openTab(event, 'ict')">ICT / SMC</button>
+        <button class="tab-btn" onclick="openTab(event, 'tesla')">Tesla 3-6-9</button>
+        <button class="tab-btn" onclick="openTab(event, 'analysis')">شیکاری</button>
     </div>
 
-    <div id="ict" class="content" style="display: block;">
+    <div id="ict" class="content active">
         <div style="background: #0d3b33; padding: 15px; border-radius: 10px; border-left: 5px solid #00ff9d;">
             <h3>سیگناڵی ICT/SMC</h3>
-            <p>لێرە زانیارییەکانت بنووسە...</p>
+            <p>لێرە سیگناڵەکانی ICT دابنێ...</p>
         </div>
     </div>
 
     <div id="tesla" class="content">
         <div style="background: #2b2b2b; padding: 15px; border-radius: 10px; border-left: 5px solid #ffcc00;">
             <h3>سیگناڵی تێسلا 3-6-9</h3>
-            <p>لێرە زانیارییەکانت بنووسە...</p>
+            <p>لێرە سیگناڵەکانی تێسلا دابنێ...</p>
         </div>
     </div>
 
@@ -45,64 +47,16 @@
     <script src="https://s3.tradingview.com/tv.js"></script>
     <script>
         new TradingView.widget({"container_id":"tradingview_chart","symbol":"OANDA:XAUUSD","theme":"dark","interval":"15"});
-        function show(id) {
-            document.querySelectorAll('.content').forEach(s => s.style.display = 'none');
-            document.getElementById(id).style.display = 'block';
-        }
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="ku">
-<head>
-    <meta charset="UTF-8">
-    <title>Rabar FX</title>
-    <style>
-        body { margin: 0; background-color: #131722; color: white; font-family: sans-serif; }
-        .tab-container { display: flex; gap: 5px; padding: 10px; }
-        .tab-btn { flex: 1; padding: 12px; cursor: pointer; background: #2a2e39; border: none; color: white; border-radius: 5px; font-weight: bold; }
-        .tab-btn:hover { background: #444; }
-        .content { padding: 15px; display: none; }
-    </style>
-</head>
-<body>
-
-    <div id="tradingview_chart" style="height: 400px;"></div>
-
-    <div class="tab-container">
-        <button class="tab-btn" onclick="show('ict')">ICT / SMC</button>
-        <button class="tab-btn" onclick="show('tesla')">Tesla 3-6-9</button>
-        <button class="tab-btn" onclick="show('analysis')">شیکاری</button>
-    </div>
-
-    <div id="ict" class="content" style="display: block;">
-        <div style="background: #0d3b33; padding: 15px; border-radius: 10px; border-left: 5px solid #00ff9d;">
-            <h3>سیگناڵی ICT/SMC</h3>
-            <p>لێرە زانیارییەکانت بنووسە...</p>
-        </div>
-    </div>
-
-    <div id="tesla" class="content">
-        <div style="background: #2b2b2b; padding: 15px; border-radius: 10px; border-left: 5px solid #ffcc00;">
-            <h3>سیگناڵی تێسلا 3-6-9</h3>
-            <p>لێرە زانیارییەکانت بنووسە...</p>
-        </div>
-    </div>
-
-    <div id="analysis" class="content">
-        <div style="background: #3b2b0d; padding: 15px; border-radius: 10px; border-left: 5px solid #ffa500;">
-            <h3>شیکاری ڕۆژانە</h3>
-            <p>شیکارییەکانت لێرە بنووسە...</p>
-        </div>
-    </div>
-
-    <script src="https://s3.tradingview.com/tv.js"></script>
-    <script>
-        new TradingView.widget({"container_id":"tradingview_chart","symbol":"OANDA:XAUUSD","theme":"dark","interval":"15"});
-        function show(id) {
-            document.querySelectorAll('.content').forEach(s => s.style.display = 'none');
-            document.getElementById(id).style.display = 'block';
+        
+        function openTab(evt, tabName) {
+            var i, content, btns;
+            content = document.getElementsByClassName("content");
+            for (i = 0; i < content.length; i++) { content[i].style.display = "none"; }
+            btns = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < btns.length; i++) { btns[i].className = btns[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
         }
     </script>
 </body>
 </html>
-
