@@ -2,16 +2,16 @@
 <html lang="ku">
 <head>
     <meta charset="UTF-8">
-    <title>Rabar FX Dashboard</title>
+    <title>Rabar FX</title>
     <style>
         body { margin: 0; background-color: #0b0e14; color: white; font-family: sans-serif; }
-        .nav { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 5px; padding: 10px; }
-        button { padding: 10px; background: #2a2e39; border: none; color: white; border-radius: 5px; cursor: pointer; font-size: 12px; }
+        .nav { display: flex; overflow-x: auto; gap: 5px; padding: 10px; background: #0b0e14; }
+        button { flex: 1; padding: 10px; background: #2a2e39; border: none; color: white; border-radius: 5px; white-space: nowrap; }
         button.active { background: #2962ff; }
         .room { display: none; padding: 10px; }
         .room.active { display: block; }
         .chart { height: 300px; width: 100%; }
-        .box { padding: 15px; background: #1a1e29; margin-top: 10px; border-radius: 5px; border-left: 4px solid #2962ff; }
+        .box { padding: 20px; background: #1a1e29; margin-top: 10px; border-radius: 5px; border-left: 4px solid #2962ff; }
     </style>
 </head>
 <body>
@@ -22,10 +22,10 @@
         <button onclick="showRoom(event, 'analysis')">Analysis</button>
     </div>
 
-    <div id="ict" class="room active"><div id="tv_ict" class="chart"></div><div class="box"><h3>ICT/SMT</h3><p>شیکاری شەمەندەفەری بازاڕ</p></div></div>
-    <div id="tesla" class="room"><div id="tv_tesla" class="chart"></div><div class="box"><h3>Tesla Zones</h3><p>دیاریکردنی زۆنەکانی 3-6-9</p></div></div>
-    <div id="signals" class="room"><div class="box"><h3>Signals</h3><p>سیگناڵە گرنگەکان لێرە زیاد بکە</p></div></div>
-    <div id="analysis" class="room"><div class="box"><h3>Daily Analysis</h3><p>شیکاری ڕۆژانەی گۆڵد و ناسداک</p></div></div>
+    <div id="ict" class="room active"><div id="tv_ict" class="chart"></div><div class="box"><h3>ICT/SMT</h3><p>شیکاری شەمەندەفەری بازاڕ لێرە دەردەکەوێت.</p></div></div>
+    <div id="tesla" class="room"><div id="tv_tesla" class="chart"></div><div class="box"><h3>Tesla Zones</h3><p>زۆنەکانی 3-6-9 لێرە دیاری بکە.</p></div></div>
+    <div id="signals" class="room"><div class="box"><h3>Signals</h3><p>سیگناڵەکانی کڕین و فرۆشتن لێرە دابنێ.</p></div></div>
+    <div id="analysis" class="room"><div class="box"><h3>Daily Analysis</h3><p>شیکاری گۆڵد و ناسداک لێرە بنووسە.</p></div></div>
 
     <script src="https://s3.tradingview.com/tv.js"></script>
     <script>
