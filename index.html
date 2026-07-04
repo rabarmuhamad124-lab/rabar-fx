@@ -10,29 +10,41 @@
         button.active { background: #2962ff; }
         .room { display: none; padding: 15px; }
         .room.active { display: block; }
-        .chart { height: 400px; width: 100%; margin-top: 10px; }
+        .chart { height: 350px; width: 100%; }
+        .box { padding: 20px; background: #1a1e29; border-radius: 10px; margin-top: 10px; border-left: 5px solid #2962ff; }
     </style>
 </head>
 <body>
 
     <div class="nav">
-        <button class="active" onclick="showRoom(event, 'ict')">ICT Chart</button>
-        <button onclick="showRoom(event, 'tesla')">Tesla Chart</button>
-        <button onclick="showRoom(event, 'chart3')">Chart 3</button>
-        <button onclick="showRoom(event, 'chart4')">Chart 4</button>
+        <button class="active" onclick="showRoom(event, 'ict')">ICT/SMT Chart</button>
+        <button onclick="showRoom(event, 'tesla')">Tesla Zones</button>
+        <button onclick="showRoom(event, 'signals')">Signals</button>
+        <button onclick="showRoom(event, 'analysis')">Daily Analysis</button>
     </div>
 
-    <div id="ict" class="room active"><div id="tv_ict" class="chart"></div></div>
-    <div id="tesla" class="room"><div id="tv_tesla" class="chart"></div></div>
-    <div id="chart3" class="room"><div id="tv_chart3" class="chart"></div></div>
-    <div id="chart4" class="room"><div id="tv_chart4" class="chart"></div></div>
+    <div id="ict" class="room active">
+        <div id="tv_ict" class="chart"></div>
+        <div class="box"><h3>ICT/SMT Analysis</h3><p>لێرەدا BOS و CHOCH دیاری بکە...</p></div>
+    </div>
+
+    <div id="tesla" class="room">
+        <div id="tv_tesla" class="chart"></div>
+        <div class="box"><h3>Tesla 3-6-9 Zones</h3><p>نرخەکان لە 3-6-9 دابەش بکە...</p></div>
+    </div>
+
+    <div id="signals" class="room">
+        <div class="box"><h3>Signals Room</h3><p>سیگناڵەکان لێرە زیاد بکە...</p></div>
+    </div>
+
+    <div id="analysis" class="room">
+        <div class="box"><h3>Daily Analysis</h3><p>شیکاری ڕۆژانە بۆ گۆڵد و ناسداک...</p></div>
+    </div>
 
     <script src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        new TradingView.widget({"container_id":"tv_ict","symbol":"OANDA:XAUUSD","theme":"dark","interval":"15"});
-        new TradingView.widget({"container_id":"tv_tesla","symbol":"OANDA:XAUUSD","theme":"dark","interval":"60"});
-        new TradingView.widget({"container_id":"tv_chart3","symbol":"OANDA:EURUSD","theme":"dark","interval":"15"});
-        new TradingView.widget({"container_id":"tv_chart4","symbol":"OANDA:GBPUSD","theme":"dark","interval":"15"});
+        new TradingView.widget({"container_id":"tv_ict","symbol":"OANDA:XAUUSD","theme":"dark"});
+        new TradingView.widget({"container_id":"tv_tesla","symbol":"OANDA:XAUUSD","theme":"dark"});
 
         function showRoom(evt, id) {
             document.querySelectorAll('.room').forEach(r => r.classList.remove('active'));
