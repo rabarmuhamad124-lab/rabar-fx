@@ -1,243 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ku">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>RABAR FX AI</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <meta charset="UTF-8">
+    <title>Rabar FX AI</title>
+    <style>
+        body { margin: 0; background-color: #0b0e14; color: #fff; font-family: sans-serif; }
+        .grid-container { display: grid; grid-template-columns: 1fr; gap: 10px; padding: 10px; }
+        .box { background: #1a1e29; padding: 15px; border-radius: 8px; border: 1px solid #2962ff; }
+        .chart-box { height: 300px; background: #000; border-radius: 8px; }
+        .signals-box { background: #161a25; border-left: 4px solid #00c853; padding: 15px; }
+    </style>
 </head>
-
 <body>
 
-<div id="app">
+    <div class="grid-container">
+        <div id="tv_chart" class="chart-box"></div>
 
-<nav class="sidebar">
+        <div class="box">
+            <h3>AI Analysis</h3>
+            <p><strong>Score:</strong> 94% Strong Buy</p>
+            <p><strong>Market Structure:</strong> Bullish</p>
+        </div>
 
-<div class="logo">
-<h1>RABAR FX AI</h1>
-<p>Professional Trading System</p>
-</div>
+        <div class="signals-box">
+            <h3>Signals Room</h3>
+            <p>Entry: 2342.50 | SL: 2315.00</p>
+            <p>TP1: 2410 | TP2: 2455</p>
+        </div>
+    </div>
 
-<ul>
-
-<li><a href="#">🏠 Dashboard</a></li>
-
-<li><a href="#">📊 Analysis Room</a></li>
-
-<li><a href="#">📡 Signals Room</a></li>
-
-<li><a href="#">📈 Chart Room</a></li>
-
-<li><a href="#">📚 PDF Library</a></li>
-
-<li><a href="#">🧪 Research Lab</a></li>
-
-<li><a href="#">📔 Journal</a></li>
-
-<li><a href="#">⚙️ Settings</a></li>
-
-</ul>
-
-</nav>
-
-<main class="content">
-
-<header>
-
-<h2>Welcome To RABAR FX AI</h2>
-
-</header>
-
-<section class="cards">
-
-<div class="card">
-<h3>AI Score</h3>
-<h1>94%</h1>
-</div>
-
-<div class="card">
-<h3>Tesla 369</h3>
-<h1>ACTIVE</h1>
-</div>
-
-<div class="card">
-<h3>ICT</h3>
-<h1>READY</h1>
-</div>
-
-<div class="card">
-<h3>SNR</h3>
-<h1>READY</h1>
-</div>
-
-</section>
-
-<section class="chart">
-
-<h2>Live Chart</h2>
-
-<div id="tvchart">
-
-TradingView Chart Here
-
-</div>
-
-</section>
-
-</main>
-
-</div>
-
-<script src="js/app.js"></script>
-
+    <script src="https://s3.tradingview.com/tv.js"></script>
+    <script>
+        new TradingView.widget({"container_id":"tv_chart","symbol":"OANDA:XAUUSD","theme":"dark","width":"100%","height":"300"});
+    </script>
 </body>
 </html>
-css/style.css/* ===========================
-   RABAR FX AI - STYLE V1
-=========================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#0b0b0b;
-    color:#ffffff;
-    overflow-x:hidden;
-}
-
-#app{
-    display:flex;
-    min-height:100vh;
-}
-
-/* Sidebar */
-
-.sidebar{
-    width:260px;
-    background:#111111;
-    border-right:1px solid #222;
-    padding:30px;
-}
-
-.logo h1{
-    color:#FFD700;
-    font-size:28px;
-    margin-bottom:5px;
-}
-
-.logo p{
-    color:#888;
-    font-size:13px;
-}
-
-.sidebar ul{
-    list-style:none;
-    margin-top:40px;
-}
-
-.sidebar li{
-    margin-bottom:18px;
-}
-
-.sidebar a{
-    color:white;
-    text-decoration:none;
-    font-size:16px;
-    transition:.3s;
-}
-
-.sidebar a:hover{
-    color:#FFD700;
-    padding-left:8px;
-}
-
-/* Main */
-
-.content{
-    flex:1;
-    padding:40px;
-}
-
-header h2{
-    font-size:34px;
-    margin-bottom:30px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.card{
-    background:#181818;
-    border:1px solid #2b2b2b;
-    border-radius:18px;
-    padding:25px;
-}
-
-.card h3{
-    color:#999;
-    margin-bottom:15px;
-}
-
-.card h1{
-    color:#FFD700;
-}
-
-.chart{
-    margin-top:35px;
-}
-
-#tvchart{
-    margin-top:15px;
-    height:500px;
-    background:#111;
-    border-radius:20px;
-    border:1px solid #2d2d2d;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#FFD700;
-    font-size:22px;
-}
-js/app.js// ============================
-// RABAR FX AI
-// app.js
-// ============================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    console.log("RABAR FX AI Started");
-
-    const cards = document.querySelectorAll(".card");
-
-    cards.forEach((card, index) => {
-
-        card.style.opacity = "0";
-        card.style.transform = "translateY(30px)";
-
-        setTimeout(() => {
-
-            card.style.transition = "0.6s ease";
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0px)";
-
-        }, index * 200);
-
-    });
-
-});
