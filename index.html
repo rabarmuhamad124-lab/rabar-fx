@@ -3,211 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RABAR FX BOOK</title>
 
-<style>
-body{
-margin:0;
-background:#050505;
-color:#fff;
-font-family:Arial,sans-serif;
-}
+<title>RABAR FX AI</title>
 
-header{
-background:#111;
-padding:20px;
-text-align:center;
-border-bottom:2px solid gold;
-}
+<link rel="stylesheet" href="css/style.css">
 
-h1{
-color:gold;
-font-size:40px;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-nav{
-display:flex;
-justify-content:center;
-gap:20px;
-padding:15px;
-background:#1a1a1a;
-flex-wrap:wrap;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
-
-section{
-padding:40px;
-margin:20px;
-background:#111;
-border-radius:15px;
-border:1px solid gold;
-}
-
-h2{
-color:gold;
-}
-
-.card{
-background:#1b1b1b;
-padding:20px;
-margin-top:20px;
-border-left:4px solid gold;
-border-radius:10px;
-}
-</style>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
+
 <body>
 
-<header>
-<h1>RABAR FX BOOK</h1>
-<p>ICT • SMT • Tesla 3-6-9</p>
-</header>
+<div id="app">
 
-<nav>
-<a href="#ict">ICT</a>
-<a href="#tesla">Tesla</a>
-<a href="#signals">Signals</a>
-<a href="#analysis">Analysis</a>
-<a href="#boss">Boss Room</a>
+<nav class="sidebar">
+
+<div class="logo">
+<h1>RABAR FX AI</h1>
+<p>Professional Trading System</p>
+</div>
+
+<ul>
+
+<li><a href="#">🏠 Dashboard</a></li>
+
+<li><a href="#">📊 Analysis Room</a></li>
+
+<li><a href="#">📡 Signals Room</a></li>
+
+<li><a href="#">📈 Chart Room</a></li>
+
+<li><a href="#">📚 PDF Library</a></li>
+
+<li><a href="#">🧪 Research Lab</a></li>
+
+<li><a href="#">📔 Journal</a></li>
+
+<li><a href="#">⚙️ Settings</a></li>
+
+</ul>
+
 </nav>
 
-<section id="ict">
-<h2>ICT Master</h2>
+<main class="content">
+
+<header>
+
+<h2>Welcome To RABAR FX AI</h2>
+
+</header>
+
+<section class="cards">
 
 <div class="card">
-<h3>BOS</h3>
-<p>Break Of Structure</p>
+<h3>AI Score</h3>
+<h1>94%</h1>
 </div>
 
 <div class="card">
-<h3>CHOCH</h3>
-<p>Change Of Character</p>
+<h3>Tesla 369</h3>
+<h1>ACTIVE</h1>
 </div>
 
 <div class="card">
-<h3>SMT</h3>
-<p>Smart Money Technique</p>
+<h3>ICT</h3>
+<h1>READY</h1>
+</div>
+
+<div class="card">
+<h3>SNR</h3>
+<h1>READY</h1>
 </div>
 
 </section>
 
-<section id="tesla">
+<section class="chart">
 
-<h2>Tesla 3-6-9</h2>
+<h2>Live Chart</h2>
 
-<div class="card">
-<h3>369 Zones</h3>
-<p>Tesla Energy Levels</p>
+<div id="tvchart">
+
+TradingView Chart Here
+
 </div>
 
 </section>
 
-<section id="signals">
-
-<h2>ICT + SMT Signals</h2>
-
-<div class="card">
-<p>BUY</p>
-<p>SELL</p>
-<p>WAIT</p>
-</div>
-
-</section>
-
-<section id="analysis">
-
-<h2>Daily Analysis</h2>
-
-<div class="card">
-<p>Gold Analysis</p>
-</div>
-
-</section>
-
-<section id="boss">
-
-<h2>Boss Room</h2>
-
-<div class="card">
-<p>Boss Zone</p>
-<p>Smart Money Zone</p>
-</div>
-
-</section>
-<section id="chart">
-
-<h2 style="text-align:center;color:gold;">
-📈 Live Gold Chart (XAUUSD)
-</h2>
-
-<div class="tradingview-widget-container">
-
-<div id="tradingview_gold" style="height:650px;"></div>
-
-<script src="https://s3.tradingview.com/tv.js"></script>
-
-<script>
-new TradingView.widget({
-"container_id":"tradingview_gold",
-"width":"100%",
-"height":650,
-"symbol":"OANDA:XAUUSD",
-"interval":"15",
-"timezone":"Etc/UTC",
-"theme":"dark",
-"style":"1",
-"locale":"en",
-"toolbar_bg":"#111111",
-"enable_publishing":false,
-"allow_symbol_change":true,
-"hide_side_toolbar":false
-});
-</script>
+</main>
 
 </div>
 
-</section><script>
-function updateSignals() {
+<script src="js/app.js"></script>
 
-const ict = document.getElementById("ictSignal");
-if (ict) {
-ict.innerHTML = `
-<h3>ICT Signal</h3>
-<p style="color:lime;">🟢 BUY</p>
-`;
-}
-
-const tesla = document.getElementById("teslaSignal");
-if (tesla) {
-tesla.innerHTML = `
-<h3>Tesla 3-6-9</h3>
-<p style="color:gold;">⚡ Bullish Energy</p>
-`;
-}
-
-const analysis = document.getElementById("analysis");
-if (analysis) {
-analysis.innerHTML = `
-<h3>Daily Analysis</h3>
-<p>Trend : Bullish</p>
-<p>BOS : Confirmed ✅</p>
-<p>CHOCH : No</p>
-<p>SMT : Bullish</p>
-<p>Target : 3400</p>
-`;
-}
-
-}
-
-updateSignals();
-setInterval(updateSignals,30000);
-</script>
 </body>
 </html>
-<!-- update -->
