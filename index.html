@@ -2,36 +2,42 @@
 <html lang="ku">
 <head>
     <meta charset="UTF-8">
-    <title>Rabar FX AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabar FX AI Dashboard</title>
     <style>
-        body { margin: 0; background-color: #0b0e14; color: #fff; font-family: sans-serif; }
-        .grid-container { display: grid; grid-template-columns: 1fr; gap: 10px; padding: 10px; }
-        .box { background: #1a1e29; padding: 15px; border-radius: 8px; border: 1px solid #2962ff; }
-        .chart-box { height: 300px; background: #000; border-radius: 8px; }
-        .signals-box { background: #161a25; border-left: 4px solid #00c853; padding: 15px; }
+        body { margin: 0; background-color: #05070a; color: #fff; font-family: 'Segoe UI', sans-serif; }
+        .dashboard-grid { display: grid; grid-template-columns: 200px 1fr 300px; gap: 10px; height: 100vh; padding: 10px; }
+        .sidebar { background: #161a25; padding: 20px; border-radius: 10px; }
+        .main-view { background: #161a25; padding: 20px; border-radius: 10px; }
+        .right-panel { background: #161a25; padding: 20px; border-radius: 10px; }
+        .chart-box { height: 400px; background: #000; margin-bottom: 20px; border-radius: 8px; }
+        h2, h3 { color: #f9a825; }
+        @media (max-width: 768px) { .dashboard-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-
-    <div class="grid-container">
-        <div id="tv_chart" class="chart-box"></div>
-
-        <div class="box">
-            <h3>AI Analysis</h3>
-            <p><strong>Score:</strong> 94% Strong Buy</p>
-            <p><strong>Market Structure:</strong> Bullish</p>
+    <div class="dashboard-grid">
+        <div class="sidebar">
+            <h2>Rabar FX AI</h2>
+            <p>Dashboard</p>
+            <p>Analysis Room</p>
+            <p>Signals Room</p>
         </div>
-
-        <div class="signals-box">
+        <div class="main-view">
+            <div id="tv_chart" class="chart-box"></div>
+            <h3>Market Overview</h3>
+            <p>لێرەدا زانیاری تەکنیکی و شیکارییەکان بە ڕێکی جێگیر دەکەین.</p>
+        </div>
+        <div class="right-panel">
             <h3>Signals Room</h3>
-            <p>Entry: 2342.50 | SL: 2315.00</p>
-            <p>TP1: 2410 | TP2: 2455</p>
+            <p>Entry: 2342.50</p>
+            <p>AI Score: 94%</p>
         </div>
     </div>
-
     <script src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        new TradingView.widget({"container_id":"tv_chart","symbol":"OANDA:XAUUSD","theme":"dark","width":"100%","height":"300"});
+        new TradingView.widget({"container_id":"tv_chart","symbol":"OANDA:XAUUSD","theme":"dark","width":"100%","height":"400"});
     </script>
 </body>
 </html>
+
