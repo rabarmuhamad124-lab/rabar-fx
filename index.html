@@ -101,3 +101,116 @@ TradingView Chart Here
 
 </body>
 </html>
+css/style.css/* ===========================
+   RABAR FX AI - STYLE V1
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:#ffffff;
+    overflow-x:hidden;
+}
+
+#app{
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:260px;
+    background:#111111;
+    border-right:1px solid #222;
+    padding:30px;
+}
+
+.logo h1{
+    color:#FFD700;
+    font-size:28px;
+    margin-bottom:5px;
+}
+
+.logo p{
+    color:#888;
+    font-size:13px;
+}
+
+.sidebar ul{
+    list-style:none;
+    margin-top:40px;
+}
+
+.sidebar li{
+    margin-bottom:18px;
+}
+
+.sidebar a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    color:#FFD700;
+    padding-left:8px;
+}
+
+/* Main */
+
+.content{
+    flex:1;
+    padding:40px;
+}
+
+header h2{
+    font-size:34px;
+    margin-bottom:30px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#181818;
+    border:1px solid #2b2b2b;
+    border-radius:18px;
+    padding:25px;
+}
+
+.card h3{
+    color:#999;
+    margin-bottom:15px;
+}
+
+.card h1{
+    color:#FFD700;
+}
+
+.chart{
+    margin-top:35px;
+}
+
+#tvchart{
+    margin-top:15px;
+    height:500px;
+    background:#111;
+    border-radius:20px;
+    border:1px solid #2d2d2d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#FFD700;
+    font-size:22px;
+}
