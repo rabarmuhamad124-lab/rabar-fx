@@ -4,49 +4,54 @@
     <meta charset="UTF-8">
     <title>RABAR FX AI</title>
     <style>
-        /* لێرە ستایلەکەت دەست پێ دەکات */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: #0b0e14; color: #fff; }
-        #app { display: flex; flex-direction: column; padding: 10px; }
+        body { background-color: #05070a; color: #fff; }
 
-        .sidebar { background: #161a25; padding: 15px; border-radius: 10px; margin-bottom: 10px; }
-        .logo h1 { color: #f9a825; font-size: 20px; }
-        .menu { display: flex; gap: 15px; margin-top: 10px; }
-        .menu a { color: #fff; text-decoration: none; font-size: 14px; }
+        /* دابەشکردنی داشبۆردەکە بۆ سێ بەش */
+        .dashboard { display: grid; grid-template-columns: 220px 1fr 300px; gap: 15px; padding: 15px; height: 100vh; }
 
-        .chart-container { height: 300px; background: #000; border-radius: 8px; margin-bottom: 15px; }
-        
-        .overview { background: #161a25; padding: 15px; border-radius: 10px; }
-        .data-box { border-top: 1px solid #333; padding-top: 10px; }
+        /* سایدبار */
+        .sidebar { background: #161a25; padding: 20px; border-radius: 10px; border: 1px solid #333; }
+        .logo h1 { color: #f9a825; font-size: 20px; margin-bottom: 20px; }
+        .sidebar p { margin-bottom: 15px; cursor: pointer; }
+
+        /* چارت */
+        .chart-section { background: #161a25; padding: 15px; border-radius: 10px; }
+        .tv-chart { height: 450px; background: #000; border-radius: 8px; }
+
+        /* بەشی لای ڕاست (سیگناڵ و شیکاری) */
+        .right-panel { background: #161a25; padding: 15px; border-radius: 10px; border: 1px solid #333; }
+        .card { background: #1a1e29; padding: 15px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #444; }
     </style>
 </head>
 <body>
 
-    <div id="app">
+    <div class="dashboard">
         <nav class="sidebar">
             <div class="logo"><h1>RABAR FX AI</h1></div>
-            <div class="menu">
-                <a href="#">Dashboard</a>
-                <a href="#">Analysis</a>
-                <a href="#">Signals</a>
-            </div>
+            <p>📊 Dashboard</p>
+            <p>🔍 Analysis Room</p>
+            <p>📡 Signals Room</p>
+            <p>🧪 Research Lab</p>
         </nav>
 
-        <main class="content">
-            <div id="tvchart" class="chart-container"></div>
-            
-            <section class="overview">
-                <h2>Market Overview</h2>
-                <div class="data-box">
-                    <p>لێرە زانیاری و شیکارییەکان دەردەکەون...</p>
-                </div>
-            </section>
+        <main class="chart-section">
+            <div id="tvchart" class="tv-chart"></div>
+            <h3 style="margin-top: 15px;">Market Structure</h3>
+            <p>لێرەدا BOS و CHOCH دیاری بکە...</p>
         </main>
+
+        <aside class="right-panel">
+            <h3>Signals Room</h3>
+            <div class="card">Entry: 4192</div>
+            <div class="card">AI Score: 94% Strong Buy</div>
+            <div class="card">TP1: 4198</div>
+        </aside>
     </div>
 
     <script src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        new TradingView.widget({"container_id":"tvchart","symbol":"OANDA:XAUUSD","theme":"dark","width":"100%","height":"300"});
+        new TradingView.widget({"container_id":"tvchart","symbol":"OANDA:XAUUSD","theme":"dark","width":"100%","height":"450"});
     </script>
 </body>
 </html>
